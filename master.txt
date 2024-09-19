@@ -1,0 +1,2 @@
+- Dùng để merge các tính năng vào branch
+- Tạo branch mới từ branch master
