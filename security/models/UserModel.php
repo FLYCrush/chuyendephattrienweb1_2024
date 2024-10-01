@@ -48,12 +48,35 @@ class UserModel extends BaseModel {
      * @param $input
      * @return mixed
      */
-    public function updateUser($input) {
-        $sql = 'UPDATE users SET 
-                 name = "' . mysqli_real_escape_string(self::$_connection, $input['name']) .'", 
-                 password="'. md5($input['password']) .'"
-                WHERE id = ' . $input['id'];
 
+    // public function updateUser($input) {
+    //     $sql = 'UPDATE users SET 
+    //              name = "' . mysqli_real_escape_string(self::$_connection, $input['name']) .'", 
+    //              password="'. md5($input['password']) .'"
+    //             WHERE id = ' . $input['id'];
+
+    //     $user = $this->update($sql);
+
+    //     return $user;
+    // }
+
+    public function updateUser($input) {
+        if (empty($input['name']) || !preg_match('/^[A-Za-z0-9]{5,15}$/', $input['name'])) {
+            return 'Tên phải chứa ký tự hợp lệ như sau: A-Z, a-z, 0-9 và có chiều dài từ 5 đến 15 ký tự!!!';
+        }
+    
+        if (empty($input['password']) || 
+            !preg_match('/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[~!@#$%^&*()]).{5,10}$/', $input['password'])) {
+            return 'Mật khẩu bao gồm: chữ viết thường a-z, chữ viết HOA A-Z, số từ 0-9 và các ký tự đặc biệt sau: ~!@#$%^&*()';
+        }
+        $name = mysqli_real_escape_string(self::$_connection, $input['name']);
+        $password = password_hash($input['password'], PASSWORD_BCRYPT);
+    
+        $sql = 'UPDATE users SET 
+                 name = "' . $name . '", 
+                 password = "' . $password . '" 
+                WHERE id = ' . (int)$input['id']; 
+    
         $user = $this->update($sql);
 
         return $user;
