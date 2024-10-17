@@ -1,0 +1,101 @@
+@type-3055-color: #fff;
+@icon-color: #f35f55;
+@text-color: #444444;
+
+.header {
+    background-color: @type-3055-color;
+    padding: 30px 150px; 
+    font-family: Arial, sans-serif; // kiểu chữ
+
+    .icon {
+        display: flex; 
+        justify-content: space-between; // Đều các cột lại
+
+        .column {
+            display: flex;
+            flex: 1; 
+            box-sizing: border-box; // Padding không bị thay đổi kích thước
+            align-items: center; // Căn chỉnh ngang đều i và span
+
+            i {
+                color: @icon-color;
+                flex: 1;
+                font-size: 35px;
+                margin: 10px;
+            }
+
+            span {
+                padding-left: 15px;
+                padding-right: 15px;
+                color: @text-color;
+                margin: 10px;
+            }
+        }  
+    }
+}
+
+.ruler {
+    border-bottom: 2px solid #003399;
+    width: 100%;
+    margin: 0;
+}
+
+.content {
+    padding: 30px 150px;
+    font-family: Arial, sans-serif;
+
+    .content-header {
+        display: flex; 
+        justify-content: space-between;
+        align-items: center;
+        padding: 20px;
+
+        h2 {
+            font-weight: bolder;
+        }
+    
+        i {
+            border: 1px solid black;
+            color: @text-color;
+            font-size: 25px;
+            opacity: 0.8;
+        }
+    }
+
+    table {
+        border-collapse: collapse;
+        justify-content: space-between;
+    }
+
+    td {
+        border: 1px solid #dddddd;
+        padding: 20px;
+    }
+
+    img {
+        display: block;
+        margin: auto;
+        width: auto;
+        height: auto;
+    }
+
+    h3 {
+        font-weight: bolder;
+        padding: 10px 0;
+    }
+
+    h3:hover {
+        color: @icon-color;
+    }
+
+    p {
+        padding-bottom: 10px;
+
+    }
+    a {
+        text-decoration: none;
+        font-weight: bolder;
+        position: relative;
+    }
+    
+}
