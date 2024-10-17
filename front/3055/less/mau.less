@@ -1,0 +1,121 @@
+@header-color: #fff;
+@border-color: #ddd;
+@icon-color: #e74c3c;
+@text-color: #333;
+@secondary-text-color: #666;
+@link-color: #3498db;
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: @header-color;
+}
+
+.header {
+    background-color: @header-color;
+    padding: 20px;
+    border-bottom: 2px solid @border-color;
+
+    .icon-text {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+
+        div {
+            text-align: center;
+        }
+
+        i {
+            font-size: 24px;
+            color: @icon-color;
+        }
+
+        span {
+            display: block;
+            margin-top: 5px;
+            font-size: 14px;
+            color: @text-color;
+        }
+    }
+}
+
+.services {
+    padding: 40px 20px;
+    text-align: center;
+
+    .services-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 20px;
+
+        h2 {
+            font-size: 24px;
+            color: @text-color;
+            margin: 0;
+        }
+
+        .navigation i {
+            font-size: 18px;
+            color: @text-color;
+            margin: 0 5px;
+            cursor: pointer;
+            border: 1px solid @border-color;
+            padding: 5px;
+        }
+    }
+
+    table {
+        width: 100%;
+        border-collapse: collapse;
+
+        th, td {
+            border: 1px solid @border-color;
+            padding: 15px;
+            text-align: left;
+            vertical-align: top;
+            width: 33.33%;
+        }
+
+        th {
+            background-color: #f9f9f9;
+        }
+    }
+
+    img {
+        width: 100%;
+        border: 1px solid @border-color;
+        margin-bottom: 15px;
+    }
+
+    h3 {
+        font-size: 18px;
+        margin: 0 0 15px;
+        color: @text-color;
+    }
+
+    p {
+        font-size: 14px;
+        margin: 0 0 15px;
+        color: @secondary-text-color;
+    }
+
+    a {
+        display: block;
+        color: @link-color;
+        text-decoration: none;
+        font-size: 14px;
+    }
+
+    .icon-text-right {
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+
+        div {
+            text-align: center;
+            margin-left: 20px;
+        }
+    }
+}
